@@ -3,7 +3,7 @@
 .section {
     padding: 6rem 2rem;
     /* background-color: #262939; */
-    /* background-color: #eee;     */
+    background-color: var(--color-bg);    
 }
 
 /* ===== SPLIT SLIDER (40% text right, 60% images left) ===== */
@@ -48,13 +48,13 @@
 
 .ss-text h2 {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-    color: var(--color-lucky-500) !important;
+    color: var(--color-lucky-900) !important;
     font-size: 1.7rem !important;
 }
 
 .ss-text p {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-    color: var(--color-lucky-100) !important;
+    color: var(--color-lucky-600) !important;
     font-size: 1rem !important;
 }
 

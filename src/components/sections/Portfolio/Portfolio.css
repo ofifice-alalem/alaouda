@@ -1,8 +1,7 @@
 /* Portfolio Section Styles */
 
 .portfolio {
-  /* background-color: var(--color-lucky-50); */
-  /* background-color: #262939; */
+  background-color: var(--color-bg);
   direction: rtl;
   padding: 4rem 0;
 }

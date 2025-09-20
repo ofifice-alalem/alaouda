@@ -40,7 +40,7 @@ const Slider = () => {
 
   const startAutoplay = useCallback(() => {
     if (!timer) {
-      const newTimer = setInterval(next, 4000);
+      const newTimer = setInterval(next, 5000);
       setTimer(newTimer);
     }
   }, [timer, next]);
