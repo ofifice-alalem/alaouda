@@ -1,0 +1,21 @@
+.card {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e1e5e9;
+  overflow: hidden;
+}
+
+.card--shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card__header {
+  padding: 1rem;
+  border-bottom: 1px solid #e1e5e9;
+  font-weight: 600;
+  background-color: #f8f9fa;
+}
+
+.card__content {
+  padding: 1rem;
+}

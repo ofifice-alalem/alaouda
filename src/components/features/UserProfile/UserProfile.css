@@ -1,0 +1,44 @@
+.user-profile {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.user-profile__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-profile__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile__info {
+  flex: 1;
+}
+
+.user-profile__name {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.user-profile__email {
+  margin: 0 0 1rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.user-profile__loading,
+.user-profile__error,
+.user-profile__empty {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.user-profile__retry {
+  margin-top: 1rem;
+}

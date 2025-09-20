@@ -1,0 +1,230 @@
+/* Navbar Component Styles - Mobile-First Approach */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-lucky-50);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  direction: rtl; /* RTL support for Arabic */
+}
+
+.navbar__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Logo left, Menu center, CTA right */
+}
+
+/* Logo Section (Left) */
+.navbar__logo {
+  flex-shrink: 0;
+}
+
+.navbar__logo-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-lucky-900);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar__logo-link:hover {
+  color: var(--color-lucky-700);
+}
+
+.navbar__logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Navigation Menu (Center) */
+.navbar__menu {
+  display: none; /* Hidden on mobile */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.navbar__item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__link {
+  color: var(--color-lucky-900);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0.3rem;
+  right: 1rem;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-lucky-600);
+  transition: width 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: var(--color-lucky-700);
+}
+
+.navbar__link:hover::after {
+  width: calc(100% - 2rem);
+}
+
+/* CTA Button (Right) */
+.navbar__cta-btn {
+  background: var(--color-lucky-600);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar__cta-btn:hover {
+  background: var(--color-lucky-700);
+  transform: translateY(-1px);
+}
+
+.navbar__cta-btn--mobile {
+  display: none;
+}
+
+/* Burger Menu Toggle (Mobile) */
+.navbar__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbar__toggle-line {
+  width: 100%;
+  height: 3px;
+  background: var(--color-lucky-900);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Burger Animation */
+.navbar__toggle--open .navbar__toggle-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar__toggle--open .navbar__toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle--open .navbar__toggle-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .navbar__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-lucky-50);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .navbar__menu--open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar__item {
+    padding: 0 1rem;
+  }
+
+  .navbar__item--mobile-cta {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-lucky-200);
+  }
+
+  .navbar__cta-btn--desktop {
+    display: none;
+  }
+
+  .navbar__cta-btn--mobile {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .navbar__menu {
+    display: flex; /* Show menu on desktop */
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar__toggle {
+    display: none; /* Hide burger menu on desktop */
+  }
+
+  .navbar__item--mobile-cta {
+    display: none;
+  }
+
+  /* Flexbox layout for desktop: Logo | Menu | CTA */
+  .navbar__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+  }
+
+  .navbar__logo {
+    justify-self: start;
+  }
+
+  .navbar__menu {
+    justify-self: center;
+  }
+
+  .navbar__cta-btn--desktop {
+    justify-self: end;
+  }
+}
