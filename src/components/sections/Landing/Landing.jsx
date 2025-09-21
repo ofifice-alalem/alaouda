@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Landing.css';
 
 /**
@@ -6,6 +7,8 @@ import './Landing.css';
  * Features: Background image, overlay, centered content, responsive design
  */
 const Landing = ({ onPortfolioClick }) => {
+  const { t } = useLanguage();
+  
   const handlePortfolioClick = () => {
     // Scroll to portfolio section
     const portfolioSection = document.querySelector('#portfolio');
@@ -27,18 +30,24 @@ const Landing = ({ onPortfolioClick }) => {
       <div className="landing__content">
         <div className="landing__text">
           <h1 className="landing__title">
-            العودة للأثاث المكتبي
+            {t('landing.title').split(' ').map((word, index) => {
+              // Highlight company name in both languages
+              if (word === 'العودة' || word === 'Alaouda') {
+                return <span key={index} className="company-name">{word}</span>;
+              }
+              return word + ' ';
+            })}
           </h1>
           
           <p className="landing__subtitle">
-            نعمل على تقديم حلول أثاث متكاملة تجمع بين الجودة والوظيفة والتصميم العصري لتلبية احتياجات عملائنا المختلفة.
+            {t('landing.subtitle')}
           </p>
           
           <button 
             className="landing__cta-btn"
             onClick={handlePortfolioClick}
           >
-            رؤية معرض الأعمال
+            {t('landing.cta')}
           </button>
         </div>
       </div>

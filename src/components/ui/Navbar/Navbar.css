@@ -11,7 +11,7 @@
   /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   backdrop-filter: blur(2px);
   z-index: 1000;
-  direction: rtl; /* RTL support for Arabic */
+  /* Direction will be set dynamically by LanguageContext */
   max-width: min(98%, 1500px);
   margin: 5px auto;
   border-radius: 15px;
@@ -114,6 +114,34 @@
 
 .navbar__cta-btn--mobile {
   display: none;
+}
+
+/* Actions Container (Desktop) */
+.navbar__actions {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language Toggle Button */
+.navbar__language-btn {
+  background: transparent;
+  border: 2px solid var(--color-lucky-600);
+  color: var(--color-lucky-600);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  min-width: 50px;
+  white-space: nowrap;
+}
+
+.navbar__language-btn:hover {
+  background: var(--color-lucky-600);
+  color: white;
+  transform: translateY(-1px);
 }
 
 /* Burger Menu Toggle (Mobile) */
@@ -276,6 +304,28 @@
   padding-top: 1.5rem;
 }
 
+/* Mobile Language Button */
+.navbar__drawer-language {
+  width: 100%;
+  background: transparent;
+  border: 2px solid var(--color-lucky-600);
+  color: var(--color-lucky-600);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.navbar__drawer-language:hover {
+  background: var(--color-lucky-600);
+  color: white;
+  transform: translateY(-1px);
+}
+
 .navbar__drawer-cta {
   width: 100%;
   background: linear-gradient(135deg, var(--color-lucky-600) 0%, var(--color-lucky-700) 100%);
@@ -385,7 +435,12 @@
     justify-self: center;
   }
 
-  .navbar__cta-btn--desktop {
+  .navbar__actions {
+    display: flex;
     justify-self: end;
+  }
+  
+  .navbar__cta-btn--desktop {
+    display: block;
   }
 }

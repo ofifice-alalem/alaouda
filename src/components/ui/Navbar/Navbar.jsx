@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Navbar.css';
 
 /**
@@ -12,13 +13,14 @@ const Navbar = ({
   className = "" 
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t, currentLanguage, switchLanguage, availableLanguages } = useLanguage();
 
   // Navigation items configuration
   const navItems = [
-    { id: 'home', label: 'الرئيسية', href: '#home' },
-    { id: 'about', label: 'من نحن', href: '#about' },
-    { id: 'services', label: 'الخدمات', href: '#services' },
-    { id: 'portfolio', label: 'معرض الأعمال', href: '#portfolio' }
+    { id: 'home', label: t('navbar.home'), href: '#home' },
+    { id: 'about', label: t('navbar.about'), href: '#about' },
+    { id: 'services', label: t('navbar.services'), href: '#services' },
+    { id: 'portfolio', label: t('navbar.portfolio'), href: '#portfolio' }
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -29,6 +31,11 @@ const Navbar = ({
     // Smooth scroll to section
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleLanguageToggle = () => {
+    const newLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
+    switchLanguage(newLanguage);
   };
 
   return (
@@ -60,13 +67,23 @@ const Navbar = ({
           ))}
         </ul>
 
-        {/* Right: CTA Button (Desktop) */}
-        <button 
-          className="navbar__cta-btn navbar__cta-btn--desktop"
-          onClick={onContactClick}
-        >
-          تواصل معنا
-        </button>
+        {/* Right: Language Toggle & CTA Button (Desktop) */}
+        <div className="navbar__actions">
+          <button 
+            className="navbar__language-btn"
+            onClick={handleLanguageToggle}
+            title={t('navbar.language')}
+          >
+            {currentLanguage === 'ar' ? 'EN' : 'عربي'}
+          </button>
+          
+          <button 
+            className="navbar__cta-btn navbar__cta-btn--desktop"
+            onClick={onContactClick}
+          >
+            {t('navbar.contact')}
+          </button>
+        </div>
 
         {/* Mobile: Burger Menu Toggle */}
         <button 
@@ -111,7 +128,16 @@ const Navbar = ({
             </li>
           ))}
           
-          {/* Mobile CTA Button (inside drawer) */}
+          {/* Mobile Language Toggle & CTA Button (inside drawer) */}
+          <li className="navbar__drawer-item">
+            <button 
+              className="navbar__drawer-language"
+              onClick={handleLanguageToggle}
+            >
+              {t('navbar.language')}: {currentLanguage === 'ar' ? 'English' : 'العربية'}
+            </button>
+          </li>
+          
           <li className="navbar__drawer-item navbar__drawer-item--cta">
             <button 
               className="navbar__drawer-cta"
@@ -120,7 +146,7 @@ const Navbar = ({
                 onContactClick?.();
               }}
             >
-              تواصل معنا
+              {t('navbar.contact')}
             </button>
           </li>
         </ul>

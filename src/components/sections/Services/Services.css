@@ -118,8 +118,15 @@
   opacity: 1;
   pointer-events: none;
   z-index: 11111;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, right 0.3s ease, left 0.3s ease;
   transform: rotate(90deg);
+}
+
+/* SVG positioning for English (LTR) */
+.direction-ltr .services__decoration {
+  right: 0;
+  left: auto;
+  transform: rotate(0deg);
 }
 
 .services__card:hover .services__decoration {
@@ -158,6 +165,13 @@
   .services__decoration {
     width: 60px;
     height: 60px;
+  }
+  
+  /* SVG positioning for English (LTR) on tablet */
+  .direction-ltr .services__decoration {
+    right: 0;
+    left: auto;
+    transform: rotate(0deg);
   }
   
   .services__card-title {
@@ -203,6 +217,13 @@
   .services__decoration {
     width: 50px;
     height: 50px;
+  }
+  
+  /* SVG positioning for English (LTR) on mobile */
+  .direction-ltr .services__decoration {
+    right: 0;
+    left: auto;
+    transform: rotate(0deg);
   }
   
   .services__card-title {

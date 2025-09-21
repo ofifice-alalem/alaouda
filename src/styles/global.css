@@ -1,5 +1,4 @@
-/* Import Cairo font */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+/* Fonts are imported in index.html */
 
 /* CSS Variables - Project Color Palette */
 :root {
@@ -29,7 +28,132 @@ body {
   color: #333;
   line-height: 1.6;
   scroll-behavior: smooth;
+  transition: all 0.3s ease;
+  /* Direction will be set dynamically by LanguageContext */
+}
+
+/* RTL Support */
+.direction-rtl {
   direction: rtl;
+  text-align: right;
+}
+
+.direction-rtl .navbar__container {
+  flex-direction: row;
+}
+
+.direction-rtl .navbar__menu {
+  flex-direction: row;
+}
+
+.direction-rtl .navbar__item {
+  margin-left: 2rem;
+  margin-right: 0;
+}
+
+.direction-rtl .navbar__actions {
+  flex-direction: row;
+}
+
+.direction-rtl .about__container {
+  flex-direction: row;
+}
+
+.direction-rtl .contact__container {
+  flex-direction: row;
+}
+
+.direction-rtl .contact__content {
+  text-align: right;
+}
+
+.direction-rtl .footer__container {
+  flex-direction: row;
+}
+
+/* LTR Support */
+.direction-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.direction-ltr .navbar__container {
+  flex-direction: row;
+}
+
+.direction-ltr .navbar__menu {
+  flex-direction: row;
+}
+
+.direction-ltr .navbar__item {
+  margin-right: 2rem;
+  margin-left: 0;
+}
+
+.direction-ltr .navbar__actions {
+  flex-direction: row;
+}
+
+.direction-ltr .about__container {
+  flex-direction: row-reverse;
+}
+
+.direction-ltr .contact__container {
+  flex-direction: row-reverse;
+}
+
+.direction-ltr .contact__content {
+  text-align: left;
+}
+
+.direction-ltr .footer__container {
+  flex-direction: row;
+}
+
+/* Language-specific font adjustments */
+.language-en {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.language-ar {
+  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Apply language-specific fonts to body */
+.language-en body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.language-ar body {
+  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Apply language-specific fonts to all elements */
+.language-en * {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.language-ar * {
+  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Ensure proper text alignment for different languages */
+.language-en {
+  text-align: left;
+}
+
+.language-ar {
+  text-align: right;
+}
+
+/* Smooth transitions for language switching */
+* {
+  transition: font-family 0.3s ease, direction 0.3s ease, text-align 0.3s ease;
+}
+
+/* Override transition for specific elements that shouldn't animate */
+img, svg, canvas, video, iframe {
+  transition: none;
 }
 
 .app {

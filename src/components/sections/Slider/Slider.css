@@ -10,7 +10,7 @@
 .split-slider {
     display: grid;
     grid-template-columns: 55% 45%;
-    gap: 2rem;
+    gap: 0rem;
     align-items: center;
 }
 
@@ -56,6 +56,8 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
     color: var(--color-lucky-600) !important;
     font-size: 1rem !important;
+    font-weight: 700;
+
 }
 
 

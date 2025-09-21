@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Services.css';
 
 /**
@@ -7,43 +8,45 @@ import './Services.css';
  * 3 columns on desktop, 2 on tablet, 1 on mobile
  */
 const Services = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       id: 1,
       image: '/img/Services/img-1.jpg',
-      title: 'الأثاث المكتبي المتكامل',
-      description: 'مكاتب، كراسي، خزانات ورفوف بجودة عالية وتصاميم عصرية تناسب بيئات العمل المختلفة.'
+      title: t('services.service1.title'),
+      description: t('services.service1.description')
     },
     {
       id: 2,
       image: '/img/Services/img-2.jpg',
-      title: 'تجهيز القاعات الدراسية',
-      description: 'مقاعد عملية ومريحة للفصول وقاعات المحاضرات، تضمن بيئة تعليمية أفضل واستمرارية في الاستخدام.'
+      title: t('services.service2.title'),
+      description: t('services.service2.description')
     },
     {
       id: 3,
       image: '/img/Services/img-3.jpg',
-      title: 'تأثيث قاعات الاجتماعات',
-      description: 'تجهيز كامل لقاعات الاجتماعات مع لمسات عصرية توفر الراحة والاحترافية أثناء اللقاءات.'
+      title: t('services.service3.title'),
+      description: t('services.service3.description')
     },
     {
       id: 4,
       image: '/img/Services/img-4.jpg',
-      title: 'الجلسات والكنبات حسب الطلب',
-      description: 'جلسات وكنبات أنيقة تلائم المكاتب والمنازل، مع إمكانية اختيار الألوان والأحجام حسب ذوقك.'
+      title: t('services.service4.title'),
+      description: t('services.service4.description')
     },
     {
       id: 5,
       image: '/img/Services/img-5.jpg',
-      title: 'التصاميم الخاصة والتفصيل حسب المقاسات',
-      description: 'نقدم خدمة تفصيل الأثاث بمقاسات وتصاميم مخصصة تلبي متطلباتك الخاصة وتناسب مساحتك تماماً.'
+      title: t('services.service5.title'),
+      description: t('services.service5.description')
     }
   ];
 
   return (
     <section className="services">
       <div className="services__container">
-        <h2 className="services__title">خدماتنا</h2>
+        <h2 className="services__title">{t('services.title')}</h2>
         
         <div className="services__grid">
           {services.map((service) => (

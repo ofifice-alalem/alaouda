@@ -1,31 +1,33 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Slider.css';
 
 const Slider = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timer, setTimer] = useState(null);
 
   const slides = [
     {
       image: "/img/slider/img-1.jpg",
-      title: "المكاتب والكراسي",
-      description: "مكاتب أنيقة وكراسي مريحة مصممة لدعم إنتاجيتك اليومية، مع خيارات متعددة تناسب الشركات الصغيرة والمؤسسات الكبيرة.",
-      buttonText: "تسوق الآن",
-      alt: "غرفة معيشة عصرية"
+      title: t('slider.slide1.title'),
+      description: t('slider.slide1.description'),
+      buttonText: t('slider.slide1.buttonText'),
+      alt: t('slider.slide1.alt')
     },
     {
       image: "/img/slider/img-2.jpg",
-      title: " المقاعد الدراسية",
-      description: "مقاعد دراسية ومحاضرات بتصاميم عملية ومريحة، تضمن تجربة تعليمية أفضل وتناسب الاستخدام طويل الأمد",
-      buttonText: "تعرف أكثر",
-      alt: "غرف نوم أنيقة"
+      title: t('slider.slide2.title'),
+      description: t('slider.slide2.description'),
+      buttonText: t('slider.slide2.buttonText'),
+      alt: t('slider.slide2.alt')
     },
     {
       image: "/img/slider/img-3.jpg",
-      title: "الكنبات والجلسات",
-      description: "كنبات وجلسات عصرية تضيف لمسة من الراحة والأناقة لمكاتبكم أو منازلكم، مع إمكانية التفصيل حسب الطلب",
-      buttonText: "استكشف التصاميم",
-      alt: "ديكورات مخصصة"
+      title: t('slider.slide3.title'),
+      description: t('slider.slide3.description'),
+      buttonText: t('slider.slide3.buttonText'),
+      alt: t('slider.slide3.alt')
     }
   ];
 
@@ -91,7 +93,7 @@ const Slider = () => {
 
         {/* Left: Images (60%) on desktop */}
         <div className="split-slider__left">
-          <div className="ss-images" dir="rtl">
+          <div className="ss-images">
             {slides.map((slide, index) => (
               <div 
                 key={index}

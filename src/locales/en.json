@@ -1,0 +1,95 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact Us",
+    "language": "Language"
+  },
+  "landing": {
+    "title": "Alaouda Office Furniture",
+    "subtitle": "We work to provide integrated furniture solutions that combine quality, functionality and modern design to meet the diverse needs of our clients.",
+    "cta": "View Portfolio"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "We are a company specialized in office furniture",
+    "description": "works to provide integrated furniture solutions that combine quality, functionality and modern design to meet the diverse needs of our clients.",
+    "feature1": "More than 15 years of experience in the office furniture field.",
+    "feature2": "High-quality products at competitive prices.",
+    "feature3": "Designs that suit all tastes and spaces.",
+    "feature4": "Custom service for equipping halls and classrooms."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We provide a wide range of specialized services",
+    "service1": {
+      "title": "Integrated Office Furniture",
+      "description": "Desks, chairs, cabinets and shelves with high quality and modern designs that suit different work environments."
+    },
+    "service2": {
+      "title": "Classroom Equipment",
+      "description": "Practical and comfortable seats for classrooms and lecture halls, ensuring a better educational environment and continuity in use."
+    },
+    "service3": {
+      "title": "Meeting Room Furnishing",
+      "description": "Complete equipment for meeting rooms with modern touches that provide comfort and professionalism during meetings."
+    },
+    "service4": {
+      "title": "Custom Seating and Sofas",
+      "description": "Elegant seating and sofas suitable for offices and homes, with the possibility of choosing colors and sizes according to your taste."
+    },
+    "service5": {
+      "title": "Custom Designs and Tailoring by Measurements",
+      "description": "We provide furniture tailoring service with custom sizes and designs that meet your specific requirements and fit your space perfectly."
+    }
+  },
+  "slider": {
+    "slide1": {
+      "title": "Desks and Chairs",
+      "description": "Elegant desks and comfortable chairs designed to support your daily productivity, with multiple options suitable for small companies and large institutions.",
+      "buttonText": "Shop Now",
+      "alt": "Modern living room"
+    },
+    "slide2": {
+      "title": "Study Chairs",
+      "description": "Study and lecture chairs with practical and comfortable designs, ensuring a better educational experience and suitable for long-term use",
+      "buttonText": "Learn More",
+      "alt": "Elegant bedrooms"
+    },
+    "slide3": {
+      "title": "Sofas and Seating",
+      "description": "Modern sofas and seating that add a touch of comfort and elegance to your offices or homes, with the possibility of custom tailoring",
+      "buttonText": "Explore Designs",
+      "alt": "Custom decorations"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Our distinguished works and successful projects"
+  },
+  "contact": {
+    "title": "Ready to Start Your Project?",
+    "subtitle": "Our team is ready to answer all your inquiries and provide assistance.",
+    "location": "Geographic Location",
+    "fastResponse": "Fast Response",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "message": "Message",
+    "send": "Send Message"
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "company": "Alaouda Office Furniture",
+    "quickLinks": "Quick Links"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "readMore": "Read More",
+    "learnMore": "Learn More"
+  }
+}

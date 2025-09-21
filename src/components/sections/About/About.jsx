@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './About.css';
 
 /**
@@ -7,26 +8,28 @@ import './About.css';
  * Features list with icons and responsive design
  */
 const About = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       id: 1,
       icon: '/img/about/icon-1.png',
-      text: 'أكثر من 15 سنوات خبرة في مجال الأثاث المكتبي.'
+      text: t('about.feature1')
     },
     {
       id: 2,
       icon: '/img/about/icon-2.png',
-      text: 'منتجات عالية الجودة وبأسعار منافسة.'
+      text: t('about.feature2')
     },
     {
       id: 3,
       icon: '/img/about/icon-3.png',
-      text: 'تصاميم تناسب جميع الأذواق والمساحات.'
+      text: t('about.feature3')
     },
     {
       id: 4,
       icon: '/img/about/icon-4.png',
-      text: 'خدمة حسب الطلب لتجهيز القاعات والفصول.'
+      text: t('about.feature4')
     }
   ];
 
@@ -37,7 +40,14 @@ const About = () => {
         {/* Content Column (Left) */}
         <div className="about__content">
           <h2 className="about__heading">
-              <span  className="company-name">العودة للأثاث المكتبي</span> تعمل على تقديم حلول أثاث متكاملة تجمع بين الجودة والوظيفة والتصميم العصري لتلبية احتياجات عملائنا المختلفة.
+              <span className="company-name">
+                {t('landing.title').split(' ').map((word, index) => {
+                  if (word === 'العودة' || word === 'Alaouda') {
+                    return word;
+                  }
+                  return word + ' ';
+                })}
+              </span> {t('about.description')}
           </h2>
           
           <ul className="about__features">

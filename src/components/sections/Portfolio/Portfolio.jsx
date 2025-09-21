@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Portfolio.css';
 
 /**
@@ -7,13 +8,14 @@ import './Portfolio.css';
  * Right: large image, Left: 3 images (1 wide + 2 side by side)
  */
 const Portfolio = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="portfolio">
       <div className="portfolio__container">
         <p className="portfolio__description">
-          <span className="portfolio__description-title">معرض الأعمال</span>
-
-           لمحة عن بعض من مشاريعنا المميزة في الأثاث المكتبي.
+          <span className="portfolio__description-title">{t('portfolio.title')}</span>
+          {t('portfolio.subtitle')}
         </p>
         
         <div className="portfolio__gallery">

@@ -2,7 +2,7 @@
 
 .contact {
   background-color: var(--color-lucky-50);
-  direction: rtl;
+  /* Direction will be set dynamically by LanguageContext */
   padding: 4rem 0;
 }
 

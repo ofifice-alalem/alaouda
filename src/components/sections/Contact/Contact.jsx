@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Contact.css';
 
 /**
@@ -7,6 +8,8 @@ import './Contact.css';
  * RTL-friendly with responsive design
  */
 const Contact = () => {
+  const { t } = useLanguage();
+  
   const handleEmailClick = () => {
     window.location.href = 'mailto:support@alauoda.ly';
   };
@@ -20,9 +23,9 @@ const Contact = () => {
       <div className="contact__container">
         {/* Left side - Content */}
         <div className="contact__content">
-          <h2 className="contact__heading">مستعد لتبدأ مشروعك؟</h2>
+          <h2 className="contact__heading">{t('contact.title')}</h2>
           <p className="contact__subtext">
-            فريقنا جاهز للإجابة على جميع استفساراتك وتقديم المساعدة.
+            {t('contact.subtitle')}
           </p>
           
           <div className="contact__items">
@@ -33,12 +36,12 @@ const Contact = () => {
             
             <div className="contact__item contact__item--clickable" onClick={handleLocationClick}>
               <img src="/img/contact/icon-2.png" alt="Location" className="contact__icon" />
-              <span className="contact__text">الموقع الجغرافي</span>
+              <span className="contact__text">{t('contact.location')}</span>
             </div>
             
             <div className="contact__item">
               <img src="/img/contact/icon-3.png" alt="Fast Response" className="contact__icon" />
-              <span className="contact__text">الاستجابة السريعة للرد</span>
+              <span className="contact__text">{t('contact.fastResponse')}</span>
             </div>
           </div>
         </div>
