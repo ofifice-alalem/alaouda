@@ -22,6 +22,7 @@ const Navbar = ({
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   const handleNavClick = (href) => {
     setIsMenuOpen(false);
@@ -42,7 +43,7 @@ const Navbar = ({
         </div>
 
         {/* Center: Navigation Links (Desktop) */}
-        <ul className={`navbar__menu ${isMenuOpen ? 'navbar__menu--open' : ''}`}>
+        <ul className="navbar__menu navbar__menu--desktop">
           {navItems.map((item) => (
             <li key={item.id} className="navbar__item">
               <a 
@@ -57,19 +58,6 @@ const Navbar = ({
               </a>
             </li>
           ))}
-          
-          {/* Mobile CTA Button (inside menu) */}
-          <li className="navbar__item navbar__item--mobile-cta">
-            <button 
-              className="navbar__cta-btn navbar__cta-btn--mobile"
-              onClick={() => {
-                setIsMenuOpen(false);
-                onContactClick?.();
-              }}
-            >
-              تواصل معنا
-            </button>
-          </li>
         </ul>
 
         {/* Right: CTA Button (Desktop) */}
@@ -91,6 +79,58 @@ const Navbar = ({
           <span className="navbar__toggle-line"></span>
         </button>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      <div className={`navbar__drawer ${isMenuOpen ? 'navbar__drawer--open' : ''}`}>
+        <div className="navbar__drawer-header">
+          <div className="navbar__drawer-logo">
+            <img src="/img/banner/banner.png" alt="العودة للأثاث المكتبي" className="navbar__drawer-logo-img" />
+          </div>
+          <button 
+            className="navbar__drawer-close"
+            onClick={closeMenu}
+            aria-label="Close navigation menu"
+          >
+            ×
+          </button>
+        </div>
+        
+        <ul className="navbar__drawer-menu">
+          {navItems.map((item) => (
+            <li key={item.id} className="navbar__drawer-item">
+              <a 
+                href={item.href}
+                className="navbar__drawer-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+          
+          {/* Mobile CTA Button (inside drawer) */}
+          <li className="navbar__drawer-item navbar__drawer-item--cta">
+            <button 
+              className="navbar__drawer-cta"
+              onClick={() => {
+                setIsMenuOpen(false);
+                onContactClick?.();
+              }}
+            >
+              تواصل معنا
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      {/* Mobile Backdrop */}
+      <div 
+        className={`navbar__backdrop ${isMenuOpen ? 'navbar__backdrop--open' : ''}`}
+        onClick={closeMenu}
+      ></div>
     </nav>
   );
 };
