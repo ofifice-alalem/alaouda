@@ -218,9 +218,16 @@
   }
   
   .footer__container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 1.5rem;
     padding: 0 1rem;
+  }
+
+  .footer__section{
+    align-items: center;
+    li , .footer__contact{
+      text-align: center;
+    }
   }
   
   .footer__section:first-child {
@@ -228,7 +235,12 @@
   }
   
   .footer__logo {
-    height: 50px;
+    height: 100px;
+    align-self: center !important;
+  }
+
+  .footer__description{
+    text-align: center !important;
   }
   
   .footer__bottom {

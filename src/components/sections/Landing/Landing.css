@@ -107,6 +107,11 @@
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
+  .landing{
+    height: calc(100vh - 125px);
+    padding-bottom: 50px;
+  }
+
   .landing__content {
     padding: 0 1.5rem;
   }
