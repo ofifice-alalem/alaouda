@@ -39,7 +39,15 @@ export const LanguageProvider = ({ children }) => {
     const language = languages[currentLanguage];
     document.documentElement.lang = language.code;
     document.documentElement.dir = language.direction;
-    document.body.className = `language-${language.code} direction-${language.direction}`;
+    // Use classList to avoid overwriting existing classes on body
+    try {
+      document.body.classList.remove(...Array.from(document.body.classList).filter(c => c.startsWith('language-') || c.startsWith('direction-')));
+    } catch (e) {
+      // In some environments document.body.classList may not be iterable as expected; fall back
+      document.body.className = document.body.className.split(' ').filter(c => !c.startsWith('language-') && !c.startsWith('direction-')).join(' ');
+    }
+    document.body.classList.add(`language-${language.code}`);
+    document.body.classList.add(`direction-${language.direction}`);
     
     // Save to localStorage
     localStorage.setItem('selectedLanguage', currentLanguage);

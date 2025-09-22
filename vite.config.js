@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 export default defineConfig({
+	base: '/alaouda-deploy/',
 	plugins: [react()],
 	server: {
 		host: '0.0.0.0',
@@ -18,13 +20,10 @@ export default defineConfig({
 			}
 		},
 		// Optimize bundle size
-		minify: 'terser',
-		terserOptions: {
-			compress: {
-				drop_console: true,
-				drop_debugger: true
-			}
-		}
+		minify: 'esbuild',
+		// Copy and optimize assets
+		copyPublicDir: true,
+		assetsDir: 'assets'
 	},
 	// Performance optimizations
 	optimizeDeps: {

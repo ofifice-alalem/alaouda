@@ -10,7 +10,9 @@
     "lint": "echo 'Linting not configured yet'",
     "test": "echo 'Tests not configured yet'",
     "test:watch": "echo 'Test watch not configured yet'",
-    "analyze": "vite build --mode analyze"
+    "analyze": "vite build --mode analyze",
+    "optimize-images": "node optimize-images.js",
+    "build:production": "npm run build && npm run optimize-images"
   },
   "dependencies": {
     "react": "^18.3.1",
