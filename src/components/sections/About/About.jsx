@@ -13,22 +13,22 @@ const About = () => {
   const features = useMemo(() => [
     {
       id: 1,
-      icon: '/img/about/icon-1.png',
+      icon: './img/about/icon-1.png',
       text: t('about.feature1')
     },
     {
       id: 2,
-      icon: '/img/about/icon-2.png',
+      icon: './img/about/icon-2.png',
       text: t('about.feature2')
     },
     {
       id: 3,
-      icon: '/img/about/icon-3.png',
+      icon: './img/about/icon-3.png',
       text: t('about.feature3')
     },
     {
       id: 4,
-      icon: '/img/about/icon-4.png',
+      icon: './img/about/icon-4.png',
       text: t('about.feature4')
     }
   ], [t]);
@@ -70,7 +70,7 @@ const About = () => {
         {/* Image Column (Right) */}
         <div className="about__image">
           <img 
-            src="/img/about/about-img.png" 
+            src="./img/about/about-img.png" 
             alt="العودة للأثاث المكتبي"
             className="about__img"
           />

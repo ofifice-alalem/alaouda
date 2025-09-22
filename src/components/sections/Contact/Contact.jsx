@@ -30,17 +30,17 @@ const Contact = () => {
           
           <div className="contact__items">
             <div className="contact__item contact__item--clickable" onClick={handleEmailClick}>
-              <img src="/img/contact/icon-1.png" alt="Email" className="contact__icon" />
+              <img src="./img/contact/icon-1.png" alt="Email" className="contact__icon" />
               <span className="contact__text">support@alauoda.ly</span>
             </div>
             
             <div className="contact__item contact__item--clickable" onClick={handleLocationClick}>
-              <img src="/img/contact/icon-2.png" alt="Location" className="contact__icon" />
+              <img src="./img/contact/icon-2.png" alt="Location" className="contact__icon" />
               <span className="contact__text">{t('contact.location')}</span>
             </div>
             
             <div className="contact__item">
-              <img src="/img/contact/icon-3.png" alt="Fast Response" className="contact__icon" />
+              <img src="./img/contact/icon-3.png" alt="Fast Response" className="contact__icon" />
               <span className="contact__text">{t('contact.fastResponse')}</span>
             </div>
           </div>
@@ -49,7 +49,7 @@ const Contact = () => {
         {/* Right side - Image */}
         <div className="contact__image">
           <img 
-            src="/img/contact/contact.png" 
+            src="./img/contact/contact.png" 
             alt="تواصل معنا"
             className="contact__img"
           />

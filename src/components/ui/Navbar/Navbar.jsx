@@ -45,7 +45,7 @@ const Navbar = ({
         {/* Left: Logo */}
         <div className="navbar__logo">
           <a href="#home" className="navbar__logo-link">
-            <img src="/img/banner/banner.png" alt="العودة للأثاث المكتبي" className="navbar__logo-img" />
+            <img src="./img/banner/banner.png" alt="العودة للأثاث المكتبي" className="navbar__logo-img" />
           </a>
         </div>
 
@@ -101,7 +101,7 @@ const Navbar = ({
       <div className={`navbar__drawer ${isMenuOpen ? 'navbar__drawer--open' : ''}`}>
         <div className="navbar__drawer-header">
           <div className="navbar__drawer-logo">
-            <img src="/img/banner/banner.png" alt="العودة للأثاث المكتبي" className="navbar__drawer-logo-img" />
+            <img src="./img/banner/banner.png" alt="العودة للأثاث المكتبي" className="navbar__drawer-logo-img" />
           </div>
           <button 
             className="navbar__drawer-close"

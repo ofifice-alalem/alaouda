@@ -9,21 +9,21 @@ const Slider = () => {
 
   const slides = useMemo(() => [
     {
-      image: "/img/slider/img-1.jpg",
+      image: "./img/slider/img-1.jpg",
       title: t('slider.slide1.title'),
       description: t('slider.slide1.description'),
       buttonText: t('slider.slide1.buttonText'),
       alt: t('slider.slide1.alt')
     },
     {
-      image: "/img/slider/img-2.jpg",
+      image: "./img/slider/img-2.jpg",
       title: t('slider.slide2.title'),
       description: t('slider.slide2.description'),
       buttonText: t('slider.slide2.buttonText'),
       alt: t('slider.slide2.alt')
     },
     {
-      image: "/img/slider/img-3.jpg",
+      image: "./img/slider/img-3.jpg",
       title: t('slider.slide3.title'),
       description: t('slider.slide3.description'),
       buttonText: t('slider.slide3.buttonText'),

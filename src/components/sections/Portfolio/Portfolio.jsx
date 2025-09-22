@@ -24,26 +24,26 @@ const Portfolio = () => {
           {/* الصف الأول - 3 صور */}
           <div className="portfolio__row-1">
             <div className="portfolio__item-small">
-              <ImageWithFallback src="/img/portfolio/img-1.png" alt="مشروع 1" className="portfolio__image" />
+              <ImageWithFallback src="./img/portfolio/img-1.png" alt="مشروع 1" className="portfolio__image" />
             </div>
             <div className="portfolio__item-large">
-              <ImageWithFallback src="/img/portfolio/img-2.png" alt="مشروع 2" className="portfolio__image" />
+              <ImageWithFallback src="./img/portfolio/img-2.png" alt="مشروع 2" className="portfolio__image" />
             </div>
             <div className="portfolio__item-small">
-              <ImageWithFallback src="/img/portfolio/img-3.png" alt="مشروع 3" className="portfolio__image" />
+              <ImageWithFallback src="./img/portfolio/img-3.png" alt="مشروع 3" className="portfolio__image" />
             </div>
           </div>
           
           {/* الصف الثاني - 3 صور بنفس الحجم */}
           <div className="portfolio__row-2">
             <div className="portfolio__item-equal">
-              <ImageWithFallback src="/img/portfolio/img-4.png" alt="مشروع 4" className="portfolio__image" />
+              <ImageWithFallback src="./img/portfolio/img-4.png" alt="مشروع 4" className="portfolio__image" />
             </div>
             <div className="portfolio__item-equal">
-              <ImageWithFallback src="/img/portfolio/img-5.png" alt="مشروع 5" className="portfolio__image" />
+              <ImageWithFallback src="./img/portfolio/img-5.png" alt="مشروع 5" className="portfolio__image" />
             </div>
             <div className="portfolio__item-equal">
-              <ImageWithFallback src="/img/portfolio/img-6.png" alt="مشروع 6" className="portfolio__image" />
+              <ImageWithFallback src="./img/portfolio/img-6.png" alt="مشروع 6" className="portfolio__image" />
             </div>
           </div>
         </div>

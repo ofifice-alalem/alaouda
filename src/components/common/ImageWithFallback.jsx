@@ -3,7 +3,7 @@ import React, { useState, memo } from 'react';
 const ImageWithFallback = ({ 
   src, 
   alt, 
-  fallbackSrc = '/img/placeholder.png',
+  fallbackSrc = './img/placeholder.png',
   className = '',
   loading = 'lazy',
   width, // optional width in px or %

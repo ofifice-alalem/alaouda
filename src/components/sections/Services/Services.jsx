@@ -13,31 +13,31 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      image: '/img/Services/img-1.jpg',
+      image: './img/Services/img-1.jpg',
       title: t('services.service1.title'),
       description: t('services.service1.description')
     },
     {
       id: 2,
-      image: '/img/Services/img-2.jpg',
+      image: './img/Services/img-2.jpg',
       title: t('services.service2.title'),
       description: t('services.service2.description')
     },
     {
       id: 3,
-      image: '/img/Services/img-3.jpg',
+      image: './img/Services/img-3.jpg',
       title: t('services.service3.title'),
       description: t('services.service3.description')
     },
     {
       id: 4,
-      image: '/img/Services/img-4.jpg',
+      image: './img/Services/img-4.jpg',
       title: t('services.service4.title'),
       description: t('services.service4.description')
     },
     {
       id: 5,
-      image: '/img/Services/img-5.jpg',
+      image: './img/Services/img-5.jpg',
       title: t('services.service5.title'),
       description: t('services.service5.description')
     }

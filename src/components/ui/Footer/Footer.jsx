@@ -36,7 +36,7 @@ const Footer = () => {
       <div className="footer__container">
         {/* Company Info */}
         <div className="footer__section">
-          <img src="/img/banner/banner.png" alt={t('footer.company')} className="footer__logo" />
+          <img src="./img/banner/banner.png" alt={t('footer.company')} className="footer__logo" />
           <p className="footer__description">
             {t('footer.company')} - {t('landing.subtitle')}
           </p>
