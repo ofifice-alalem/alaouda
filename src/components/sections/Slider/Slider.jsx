@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import './Slider.css';
 
@@ -7,7 +7,7 @@ const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timer, setTimer] = useState(null);
 
-  const slides = [
+  const slides = useMemo(() => [
     {
       image: "/img/slider/img-1.jpg",
       title: t('slider.slide1.title'),
@@ -29,7 +29,7 @@ const Slider = () => {
       buttonText: t('slider.slide3.buttonText'),
       alt: t('slider.slide3.alt')
     }
-  ];
+  ], [t]);
 
   const goTo = useCallback((index) => {
     if (index === currentIndex) return;
@@ -118,4 +118,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default React.memo(Slider);
