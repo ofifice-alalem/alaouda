@@ -15,9 +15,13 @@ class UserService extends BaseService {
    * Override beforeRequest to add authentication
    */
   beforeRequest() {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      this.headers.Authorization = `Bearer ${token}`;
+    try {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        this.headers.Authorization = `Bearer ${token}`;
+      }
+    } catch (error) {
+      console.warn('localStorage not available:', error);
     }
   }
 
@@ -38,8 +42,8 @@ class UserService extends BaseService {
   /**
    * Mock method for demonstration
    */
-  async getMockUser() {
-    // Simulate API call
+  async getMockUser(delay = 200) {
+    // Simulate API call with configurable delay
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -48,7 +52,7 @@ class UserService extends BaseService {
           email: 'john@example.com',
           avatar: 'https://via.placeholder.com/150'
         });
-      }, 1000);
+      }, delay);
     });
   }
 }

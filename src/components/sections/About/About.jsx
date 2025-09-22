@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import './About.css';
 
@@ -10,7 +10,7 @@ import './About.css';
 const About = () => {
   const { t } = useLanguage();
   
-  const features = [
+  const features = useMemo(() => [
     {
       id: 1,
       icon: '/img/about/icon-1.png',
@@ -31,7 +31,7 @@ const About = () => {
       icon: '/img/about/icon-4.png',
       text: t('about.feature4')
     }
-  ];
+  ], [t]);
 
   return (
     <section className="about">
@@ -43,9 +43,9 @@ const About = () => {
               <span className="company-name">
                 {t('landing.title').split(' ').map((word, index) => {
                   if (word === 'العودة' || word === 'Alaouda') {
-                    return word;
+                    return <span key={index}>{word}</span>;
                   }
-                  return word + ' ';
+                  return <span key={index}>{word} </span>;
                 })}
               </span> {t('about.description')}
           </h2>
@@ -57,6 +57,7 @@ const About = () => {
                   src={feature.icon} 
                   alt={`Feature ${feature.id}`}
                   className="about__feature-icon"
+                  onError={(e) => e.target.style.display = 'none'}
                 />
                 <span className="about__feature-text">
                   {feature.text}

@@ -34,8 +34,8 @@ const appReducer = (state, action) => {
   }
 };
 
-// Context creation
-const AppContext = createContext();
+// Context creation with default value
+const AppContext = createContext(initialState);
 
 /**
  * Context Provider component

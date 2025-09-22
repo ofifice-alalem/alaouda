@@ -23,6 +23,8 @@ const useUser = () => {
       setUser(userData);
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -36,6 +38,8 @@ const useUser = () => {
       setUser(newUser);
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 

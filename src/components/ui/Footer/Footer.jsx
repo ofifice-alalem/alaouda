@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import './Footer.css';
 
@@ -9,18 +9,27 @@ import './Footer.css';
 const Footer = () => {
   const { t } = useLanguage();
   
-  const handleEmailClick = () => {
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
+  
+  const handleEmailClick = useCallback(() => {
     window.location.href = 'mailto:support@alauoda.ly';
-  };
+  }, []);
 
-  const handleLocationClick = () => {
-    window.open('https://maps.app.goo.gl/5Km3pGBZtmA64oM37?g_st=aw', '_blank');
-  };
+  const handleLocationClick = useCallback(() => {
+    window.open('https://maps.app.goo.gl/5Km3pGBZtmA64oM37?g_st=aw', '_blank', 'noopener,noreferrer');
+  }, []);
 
-  const handleNavClick = (href) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const createNavClickHandler = useCallback((href) => {
+    return (e) => {
+      e.preventDefault();
+      try {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      } catch (error) {
+        console.warn('Invalid selector:', href);
+      }
+    };
+  }, []);
 
   return (
     <footer className="footer">
@@ -37,10 +46,10 @@ const Footer = () => {
         <div className="footer__section">
           <h3 className="footer__title">{t('footer.quickLinks')}</h3>
           <ul className="footer__links">
-            <li><a href="#home" onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}>{t('navbar.home')}</a></li>
-            <li><a href="#about" onClick={(e) => { e.preventDefault(); handleNavClick('#about'); }}>{t('navbar.about')}</a></li>
-            <li><a href="#services" onClick={(e) => { e.preventDefault(); handleNavClick('#services'); }}>{t('navbar.services')}</a></li>
-            <li><a href="#portfolio" onClick={(e) => { e.preventDefault(); handleNavClick('#portfolio'); }}>{t('navbar.portfolio')}</a></li>
+            <li><a href="#home" onClick={createNavClickHandler('#home')}>{t('navbar.home')}</a></li>
+            <li><a href="#about" onClick={createNavClickHandler('#about')}>{t('navbar.about')}</a></li>
+            <li><a href="#services" onClick={createNavClickHandler('#services')}>{t('navbar.services')}</a></li>
+            <li><a href="#portfolio" onClick={createNavClickHandler('#portfolio')}>{t('navbar.portfolio')}</a></li>
           </ul>
         </div>
 
@@ -60,7 +69,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="footer__bottom">
-        <p>&copy; {new Date().getFullYear()} {t('footer.company')}. {t('footer.copyright')}.</p>
+        <p>&copy; {currentYear} {t('footer.company')}. {t('footer.copyright')}.</p>
       </div>
     </footer>
   );

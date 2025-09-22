@@ -20,3 +20,10 @@ export const STORAGE_KEYS = {
   AUTH_TOKEN: 'authToken',
   USER_PREFERENCES: 'userPreferences'
 };
+
+// Environment variables for sensitive data
+export const CONFIG = {
+  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api',
+  API_KEY: import.meta.env.VITE_API_KEY,
+  APP_ENV: import.meta.env.MODE || 'development'
+};

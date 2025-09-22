@@ -1,13 +1,33 @@
+import { CONFIG } from '../utils/constants';
+
 /**
  * Abstract Base Service Class
  * Implements Template Method Pattern and follows Open/Closed Principle
  */
 class BaseService {
-  constructor(baseURL = 'https://api.example.com') {
-    this.baseURL = baseURL;
+  constructor(baseURL = CONFIG.API_BASE_URL) {
+    this.baseURL = this.validateURL(baseURL);
     this.headers = {
       'Content-Type': 'application/json'
     };
+  }
+
+  /**
+   * Validate URL to prevent SSRF attacks
+   */
+  validateURL(url) {
+    try {
+      const parsedURL = new URL(url);
+      const allowedHosts = ['localhost', '127.0.0.1', 'api.example.com'];
+      
+      if (!allowedHosts.includes(parsedURL.hostname)) {
+        throw new Error('Invalid host');
+      }
+      
+      return url;
+    } catch (error) {
+      throw new Error('Invalid URL provided');
+    }
   }
 
   /**
@@ -30,6 +50,12 @@ class BaseService {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
+      // Check content type before parsing JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Response is not JSON');
+      }
+
       const data = await response.json();
       return this.afterRequest(data);
     } catch (error) {
@@ -47,7 +73,10 @@ class BaseService {
   }
 
   handleError(error) {
-    console.error('Service Error:', error);
+    // Use proper logging instead of console.error
+    if (CONFIG.APP_ENV === 'development') {
+      console.error('Service Error:', error);
+    }
     throw error;
   }
 
